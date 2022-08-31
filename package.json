@@ -1,11 +1,11 @@
 {
-    "name": "alkariamc-Launcher",
-    "preductname": "Selvania Launcher",
+    "name": "AlkariaMC-Launcher",
+    "preductname": "AlkariaMC Launcher",
     "version": "1.0.2",
     "description": "Launcher Mincraft custom (crack, premium)",
     "main": "src/app.js",
     "author": "Luuxis",
-    "url": "http://launcher.selvania.fr",
+    "url": "http://launcher.alkariamc.store",
     "engines": {
         "node": "16.x.x"
     },
