@@ -2,10 +2,10 @@
     "name": "AlkariaMC-Launcher",
     "preductname": "AlkariaMC Launcher",
     "version": "1.0.2",
-    "description": "Launcher Mincraft custom (crack, premium)",
+    "description": "Launcher AlkariaMC Skyblock modée",
     "main": "src/app.js",
-    "author": "Luuxis",
-    "url": "http://launcher.selvania.fr",
+    "author": "Astryan",
+    "url": "http://launcher.alkariamc.store",
     "engines": {
         "node": "16.x.x"
     },
