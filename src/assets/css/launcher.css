@@ -21,7 +21,7 @@ img {
 
 .dragbar {
     position: fixed;
-    background: #3c64e780;
+    background: #00000080;
     top: 0px;
     left: 0px;
     width: 100%;
@@ -158,6 +158,16 @@ img {
 
 .rotation {
     animation: rotation 5s infinite linear;
+}
+
+#titleServer {
+    position: absolute;
+    top: -15px;
+    left: 10px;
+    font-size: 1em;
+    font-family: Poppins;
+    color: #fff;
+    z-index: 999;
 }
 
 @keyframes rotation {
