@@ -1,7 +1,7 @@
 {
     "name": "AlkariaMC-Launcher",
     "preductname": "AlkariaMC Launcher",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Launcher AlkariaMC Skyblock modée",
     "main": "src/app.js",
     "author": "Astryan",
