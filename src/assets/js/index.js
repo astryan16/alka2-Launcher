@@ -22,9 +22,7 @@ class Splash {
 
     async startAnimation() {
         let splashes = [
-            { "message": "Skyblock modée", "author": "Astryan" },
-            { "message": "faction.", "author": "Astryan" },
-            { "message": "rejoint nous vite.", "author": "Astryan" }
+            { "message": "Je ne connais pas le mot lag...", "author": "Hatasia" },
         ];
         let splash = splashes[Math.floor(Math.random() * splashes.length)];
         this.splashMessage.textContent = splash.message;
@@ -54,12 +52,13 @@ class Splash {
     }
 
     async checkUpdate() {
-        this.setStatus(`recherche de mise à jour...`);
+        this.setStatus(`Recherche de mise à jour...`);
         ipcRenderer.send('update-app');
 
         ipcRenderer.on('updateAvailable', () => {
             this.setStatus(`Mise à jour disponible !`);
             this.toggleProgress();
+            ipcRenderer.send('start-update');
         })
 
         ipcRenderer.on('download-progress', (event, progress) => {

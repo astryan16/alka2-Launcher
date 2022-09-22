@@ -28,7 +28,7 @@ function createWindow() {
         height: 720,
         minWidth: 980,
         minHeight: 552,
-        resizable: false,
+        resizable: true,
         icon: `./src/assets/images/icon.${os.platform() === "win32" ? "ico" : "png"}`,
         transparent: os.platform() === 'win32',
         frame: os.platform() !== 'win32',

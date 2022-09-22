@@ -6,7 +6,7 @@
 'use strict';
 
 import { database, changePanel, addAccount, accountSelect } from '../utils.js';
-const { Mojang } = require('minecraft-java-core');
+const { AZauth } = require('minecraft-java-core');
 const { ipcRenderer } = require('electron');
 
 class Login {
@@ -19,8 +19,9 @@ class Login {
     }
 
     getOnline() {
-        console.log(`Initializing microsoft Panel...`)
-        console.log(`Initializing mojang Panel...`)
+        // console.log(`Initializing microsoft Panel...`)
+        // console.log(`Initializing mojang Panel...`)
+        console.log(`Initializing Login Panel...`)
         this.loginMicrosoft();
         this.loginMojang();
         document.querySelector('.cancel-login').addEventListener("click", () => {
@@ -99,7 +100,7 @@ class Login {
         })
     }
 
-    loginMojang() {
+    async loginMojang() {
         let mailInput = document.querySelector('.Mail')
         let passwordInput = document.querySelector('.Password')
         let cancelMojangBtn = document.querySelector('.cancel-mojang')
@@ -110,14 +111,16 @@ class Login {
         mojangBtn.addEventListener("click", () => {
             document.querySelector(".login-card").style.display = "none";
             document.querySelector(".login-card-mojang").style.display = "block";
+            // document.querySelector('.a2f-card').style.display = "none";
         })
 
         cancelMojangBtn.addEventListener("click", () => {
             document.querySelector(".login-card").style.display = "block";
             document.querySelector(".login-card-mojang").style.display = "none";
+            // document.querySelector('.a2f-card').style.display = "none";
         })
 
-        loginBtn.addEventListener("click", () => {
+        loginBtn.addEventListener("click", async () => {
             cancelMojangBtn.disabled = true;
             loginBtn.disabled = true;
             mailInput.disabled = true;
@@ -126,7 +129,8 @@ class Login {
 
 
             if (mailInput.value == "") {
-                infoLogin.innerHTML = "Entrez votre adresse email / Nom d'utilisateur"
+                console.log(mailInput.value);
+                infoLogin.innerHTML = "Entrez votre pseudo"
                 cancelMojangBtn.disabled = false;
                 loginBtn.disabled = false;
                 mailInput.disabled = false;
@@ -143,7 +147,27 @@ class Login {
                 return
             }
 
-            Mojang.getAuth(mailInput.value, passwordInput.value).then(account_connect => {
+            let azAuth = new AZauth('https://alkariamc.store');
+
+            await azAuth.getAuth(mailInput.value, passwordInput.value).then(async account_connect => {
+                console.log(account_connect);
+
+                if (account_connect.error) {
+                    cancelMojangBtn.disabled = false;
+                    loginBtn.disabled = false;
+                    mailInput.disabled = false;
+                    passwordInput.disabled = false;
+                    infoLogin.innerHTML = 'Adresse E-mail ou mot de passe invalide'
+                    return
+                }
+
+                // if (!account_connect.A2F) {
+                //     document.querySelector('.a2f-card').style.display = "block";
+                //     document.querySelector(".login-card-mojang").style.display = "none";
+                //     console.log("A2F");
+                //     return
+                // }
+
                 let account = {
                     access_token: account_connect.access_token,
                     client_token: account_connect.client_token,
@@ -152,7 +176,7 @@ class Login {
                     user_properties: account_connect.user_properties,
                     meta: {
                         type: account_connect.meta.type,
-                        offline: account_connect.meta.offline
+                        offline: true
                     }
                 }
 
@@ -172,6 +196,7 @@ class Login {
                 loginBtn.style.display = "block";
                 infoLogin.innerHTML = "&nbsp;";
             }).catch(err => {
+                console.log(err);
                 cancelMojangBtn.disabled = false;
                 loginBtn.disabled = false;
                 mailInput.disabled = false;

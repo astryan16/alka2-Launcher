@@ -160,16 +160,6 @@ img {
     animation: rotation 5s infinite linear;
 }
 
-#titleServer {
-    position: absolute;
-    top: -15px;
-    left: 10px;
-    font-size: 1em;
-    font-family: Poppins;
-    color: #fff;
-    z-index: 999;
-}
-
 @keyframes rotation {
     from {
         transform: rotate(0deg);

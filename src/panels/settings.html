@@ -1,10 +1,15 @@
+<link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
 <div class="settings-content">
     <div class="tabs-settings-btn">
-        <button class="tab-btn-css tab-btn active-tab-btn default-tab-btn">Comptes</button>
-        <button class="tab-btn-css tab-btn">Java</button>
-        <button class="tab-btn-css tab-btn">Résolution</button>
-        <button class="tab-btn-css tab-btn">Launcher</button>
-        <button class="tab-btn-css save-tabs-btn">Sauvegarder</button>
+
+        <button style="margin-top:250px;" class="tab-btn-css tab-btn active-tab-btn default-tab-btn"><i
+                class='fa fa-user-circle'> </i> COMPTES</button>
+
+        <button class="tab-btn-css tab-btn"><i class="fa-solid fa-memory"></i> JAVA</button>
+        <button class="tab-btn-css tab-btn"><i class="fa-solid fa-display"></i> RESOLUTION</button>
+        <button class="tab-btn-css tab-btn"><i class="fa-solid fa-bars-progress"></i> LAUNCHER</button>
+        <button class="tab-btn-css save-tabs-btn"><i class="fa-solid fa-floppy-disk"></i> SAUVEGARDER</button>
     </div>
 
     <div class="tabs-settings-content active-tab-content">
@@ -16,15 +21,21 @@
 
     <div class="tabs-settings-content">
         <div class="settings-content-scroll">
-            <div class="title-settings">Paramètre de votre RAM.</div>
+            <div class="title-settings">Paramètre de votre RAM</div>
             <div class="java-settings">
                 <div class="information">
-                    Définition de la RAM alloué à votre jeu, une quantité plus important augmenteras les performances de votre jeu.<br> A noter qu'il faut éviter de mettre une trop grande quantité sinon cela peut provoquer des pertes de performances survos
-                    autres applications.
+                    Définition de la RAM alloué à votre jeu, une quantité plus important augmenteras les performances de
+                    votre jeu.<br> A noter qu'il faut éviter de mettre une trop grande quantité sinon cela peut
+                    provoquer des pertes de performances survos
+                    autres applications
                     <br><br>
-                    <b>- RAM Maximale :</b> Indique la quantité totale de RAM allouée à votre jeu. Il est recommandé de ne pas dépasser 50% de la quantité totale de RAM présente sur votre PC afin qu'il puisse fonctionner correctement. Si votre ordinateur
-                    a plus de 8Go de RAM, nous vous recommandons d'allouer 3Go. Si votre ordinateur a 4Go ou moins, n'allouez pas plus de 2Go.<br><br>
-                    <b>- RAM Minimale :</b> Indique la quantité minimale de RAM allouée au démarrage de votre jeu. Il est recommandé de ne pas mettre plus de 3Go pour cette valeur. La valeur typique est de 1Go.
+                    <b>- RAM Maximale :</b> Indique la quantité totale de RAM allouée à votre jeu. Il est recommandé de
+                    ne pas dépasser 50% de la quantité totale de RAM présente sur votre PC afin qu'il puisse fonctionner
+                    correctement. Si votre ordinateur
+                    a plus de 8Go de RAM, nous vous recommandons d'allouer 3Go. Si votre ordinateur a 4Go ou moins,
+                    n'allouez pas plus de 2Go<br><br>
+                    <b>- RAM Minimale :</b> Indique la quantité minimale de RAM allouée au démarrage de votre jeu. Il
+                    est recommandé de ne pas mettre plus de 3Go pour cette valeur. La valeur typique est de 1Go
                 </div>
                 <div class="ram-info">
                     <div class="memory-slider" min="0.5" max="8" step="0.5">
@@ -41,15 +52,17 @@
 
                     <div class="ram-info-block">
                         <b>Vous possédez un total de <span id="total-ram">0 Go</span> RAM.</b><br>
-                        <b>Vous possédez un total de <span id="free-ram">0 Go</span> RAM disponible.</b>
+                        <b>Vous possédez un total de <span id="free-ram">0 Go</span> RAM disponible</b>
                     </div>
                 </div>
             </div>
 
-            <div class="title-settings">Emplacement de Java.</div>
+            <div class="title-settings">Emplacement de Java</div>
             <div class="java-settings">
                 <div class="information">
-                    Le launcher utilise une version embarquée de Java.<br> Cette version est disponible dans le répertoire <span class="info-path"></span>.<br> Toutefois, vous pouvez spécifier votre propre exécutable.
+                    Le launcher utilise une version embarquée de Java<br> Cette version est disponible dans le
+                    répertoire <span class="info-path"></span><br> Toutefois, vous pouvez spécifier votre propre
+                    exécutable
                 </div>
                 <input type="text" class="path" disabled />
                 <button class="path-button">Changer</button>
@@ -57,10 +70,10 @@
                 <input type="file" class="path-file" accept="application/octet-stream" />
             </div>
 
-            <div class="title-settings">Paramètres des arguments java.</div>
+            <div class="title-settings">Paramètres des arguments java</div>
             <div class="java-settings">
                 <div class="information">
-                    Les arguments java sont utilisés pour définir les paramètres de votre jeu.
+                    Les arguments java sont utilisés pour définir les paramètres de votre jeu
                 </div>
                 <input type="text" class="args-settings" placeholder="Il est déconseillé de modifier ce paramètre." />
             </div>
@@ -69,10 +82,11 @@
 
     <div class="tabs-settings-content">
         <div class="center-page">
-            <div class="title-settings">Paramètre de la résolution de minecraft.</div>
+            <div class="title-settings">Paramètre de la résolution de minecraft</div>
             <div class="java-settings">
                 <div class="information">
-                    Définissez une résolution personnalisée ou choisissez-en une dans la liste en fonction de la taille de votre écran.
+                    Définissez une résolution personnalisée ou choisissez-en une dans la liste en fonction de la taille
+                    de votre écran
                 </div>
                 <div class="input-size-content">
                     <div class="input-size">
@@ -81,7 +95,8 @@
                         <input type="text" class="height-size input-settings" disabled>
                         <div class="select-wrap icon-monitor">
                             <select id="select" class="select">
-                                <option disabled selected value style="display: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                                <option disabled selected value style="display: none">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
                                 <optgroup label="Ratio 4:3">
                                     <option value="640 x 480">640 x 480</option>
                                     <option value="800 x 600">800 x 600</option>
@@ -112,18 +127,23 @@
     </div>
 
     <div class="tabs-settings-content">
-        <div class="center-page">
-            <div class="title-settings">Paramètre du launcher.</div>
+
+            <div class="title-settings">Paramètre après le lancement du jeu</div>
             <div class="java-settings">
                 <div class="information"></div>
-            </div>
-
-            <div class="title-settings">Paramètre après le lancement du jeu.</div>
-            <div class="java-settings">
-                <div class="information"></div>            
-                <input type="checkbox" class="checkbox-settings" id="launcher-close"><label for="launcher-close"><div class="checkround"></div></label> Fermer le launcher après le lancement du jeu.</br>
-                <input type="checkbox" class="checkbox-settings" id="launcher-close-all"><label for="launcher-close-all"><div class="checkround"></div></label> Fermer le jeu si le launcher est fermé.</br>
-                <input type="checkbox" class="checkbox-settings" id="launcher-open"><label for="launcher-open"><div class="checkround"></div></label> Garder le launcher ouvert après le lancement du jeu.
+                <input type="checkbox" class="checkbox-settings" id="launcher-close"><label for="launcher-close">
+                    <div class="checkround"></div>
+                </label><label style="color: white; font-family: Poppins;">Fermer le launcher après le lancement du
+                    jeu</label></br>
+                <input type="checkbox" class="checkbox-settings" id="launcher-close-all"><label
+                    for="launcher-close-all">
+                    <div class="checkround"></div>
+                </label><label style="color: white; font-family: Poppins;">Fermer le jeu si le launcher est
+                    fermé</label></br>
+                <input type="checkbox" class="checkbox-settings" id="launcher-open"><label for="launcher-open">
+                    <div class="checkround"></div>
+                </label><label style="color: white; font-family: Poppins;">Garder le launcher ouvert après le lancement
+                    du jeu</label>
             </div>
         </div>
     </div>

@@ -18,7 +18,7 @@ let dev = process.env.NODE_ENV === 'dev';
 
 if (dev) {
     let appPath = path.resolve('./AppData/Launcher').replace(/\\/g, '/');
-    if(!fs.existsSync(appPath)) fs.mkdirSync(appPath, { recursive: true });
+    if (!fs.existsSync(appPath)) fs.mkdirSync(appPath, { recursive: true });
     app.setPath('userData', appPath);
 }
 
@@ -52,7 +52,7 @@ ipcMain.on('main-window-maximize', () => {
 ipcMain.on('main-window-hide', () => MainWindow.getWindow().hide())
 ipcMain.on('main-window-show', () => MainWindow.getWindow().show())
 
-ipcMain.handle('Microsoft-window', async(event, client_id) => {
+ipcMain.handle('Microsoft-window', async (event, client_id) => {
     return await new Microsoft(client_id).getAuth();
 })
 
@@ -70,6 +70,10 @@ autoUpdater.on('update-available', () => {
     const updateWindow = UpdateWindow.getWindow();
     if (updateWindow) updateWindow.webContents.send('updateAvailable');
 });
+
+ipcMain.on('start-update', () => {
+    autoUpdater.downloadUpdate();
+})
 
 autoUpdater.on('update-not-available', () => {
     const updateWindow = UpdateWindow.getWindow();
